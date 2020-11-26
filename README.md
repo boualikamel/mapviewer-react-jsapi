@@ -1,4 +1,4 @@
-# ArcGIS API for JavaScript with create-react-app
+# A MapViewer Built with react and [`@arcgis/core`](https://www.npmjs.com/package/@arcgis/core)
 
 Integrating React with [`@arcgis/core`](https://www.npmjs.com/package/@arcgis/core) does not require much manual configuration. The one requirement is having to copy the `@arcgis/core/assets` folder to the build. CRA does not provide a clear method to do this during the build so, you can use [`ncp`](https://www.npmjs.com/package/ncp) to copy the files to the build directory on `postinstall`.
 
