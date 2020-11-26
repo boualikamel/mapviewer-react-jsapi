@@ -6,15 +6,19 @@ import "@arcgis/core/assets/esri/themes/dark/main.css";
 
 import { AppProvider } from "./contexts/AppContext";
 import { WebMapView } from "./components/WebMapView";
-import Drawing from "./components/Drawing";
+import Drawing from "./components/widgets/Drawing";
 import "./App.css";
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+
 
 ReactDOM.render(
   <AppProvider>
-    <WebMapView>
-
-    </WebMapView>
-    <Drawing />
+    <div className="mapContainer">
+      <WebMapView />
+      <div className='widgetContainer'>
+        <Drawing></Drawing>
+      </div>
+    </div>
   </AppProvider>,
 
   document.getElementById("root")
