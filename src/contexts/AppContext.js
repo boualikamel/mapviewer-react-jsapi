@@ -12,7 +12,7 @@ export const AppProvider = ({ children }) => {
 
   const loadMap = async () => {
     if (container) {
-      const mapping = await import("../data/map");
+      const mapping = await import("../config/map");
       mapping.initialize(container);
     }
   };

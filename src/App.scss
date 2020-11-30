@@ -1,0 +1,39 @@
+$header-height: 64px;
+
+html,
+body,
+#root {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  .header {
+    position: absolute;
+    width: 100%;
+    height: $header-height;
+    .button-sidebar {
+      left: 0;
+    }
+  }
+  .mapContainer {
+    height: calc(100% - #{$header-height});
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: gray;
+    display: flex;
+
+    .webmap {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+
+    @import "./layouts/sidebar/sidebar.scss";
+    @import "./layouts/widgetLayout/widget.scss";
+  }
+}

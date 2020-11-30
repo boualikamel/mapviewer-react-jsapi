@@ -5,15 +5,19 @@ import MapView from "@arcgis/core/views/MapView";
 
 
 const map = new ArcGISMap({
-  basemap: "gray-vector",
+  basemap: "gray-vector", 
 });
 
 export const view = new MapView({
   container: "viewDiv",
   map: map,
   zoom: 6, // Sets zoom level based on level of detail (LOD)
-  center: [3.262939, 36.618283], // Sets center point of view using longitude,latitude
+  center: [3.262939, 36.618283],
+  showAttribution: false  // Sets center point of view using longitude,latitude
 });
+view.ui._removeComponents(["attribution"]);
+
+
 
 map.addMany(featureLayers);
 

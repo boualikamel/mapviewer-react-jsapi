@@ -6,8 +6,6 @@ const WebMapView = () => {
     const mapRef = useRef(null);
     const { setContainer } = useContext(AppContext);
 
-    // we can let the application context
-    // know that the component is ready
     useEffect(() => {
         setContainer(mapRef.current);
     }, [mapRef.current]);

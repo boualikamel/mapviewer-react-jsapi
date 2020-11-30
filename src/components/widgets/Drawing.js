@@ -2,16 +2,13 @@ import React, { useRef, useEffect } from "react";
 
 import Graphic from "@arcgis/core/Graphic";
 import Draw from "@arcgis/core/views/draw/Draw";
-import { view } from "../../data/map";
+import { view } from "../../config/map";
 import { Button, Tooltip } from "antd";
-import baseMaps from "../../data/baseMaps";
-import BasemapGallery from "@arcgis/core/widgets/BasemapGallery";
-import LocalBasemapsSource from "@arcgis/core/widgets/BasemapGallery/support/LocalBasemapsSource";
+
 
 const Drawing = () => {
   const ref = useRef(null);
-  const refBaseMapGalery = useRef(null);
-
+ 
   const draw = new Draw({
     view: view,
   });
@@ -59,14 +56,7 @@ const Drawing = () => {
 
       view.graphics.add(graphic);
     };
-    const localSource = new LocalBasemapsSource({
-      basemaps: baseMaps,
-    });
-    const basemapGallery = new BasemapGallery({
-      view: view,
-      source: localSource,
-      container: refBaseMapGalery.current
-    });
+ 
     
     ref.current = drawPolyline;
   }, []);
@@ -75,7 +65,6 @@ const Drawing = () => {
       <Button type="primary" shape="round" onClick={() => ref.current()}>
         Drawing
       </Button>
-      <div className='baseMapGalery' ref={refBaseMapGalery}></div>
     </Tooltip>
   );
 };
