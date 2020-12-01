@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Draggable from "react-draggable";
-import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
 
-const Widget = () => {
-  const [position, setPosition] = useState({ x: 50, y: 50 });
+const Widget = (props) => {
+  const widgetContainerRef = useRef(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
   const [deltaPosition, setDeltaPosition] = useState({ x: 0, y: 0 });
   const [activeDrags, setActiveDrags] = useState(0);
   const [fixe, setFixe] = useState(true);
-  const[height,setHeight]=useState('600px')
-
+  const [dimension, setDimension] = useState({
+    height: "600px",
+    width: "600px",
+  });
+  const [initialDimension, setInitialDimension] = useState({});
   const handleDrag = (e, ui) => {
     const { x, y } = deltaPosition;
     setDeltaPosition({
@@ -18,24 +21,40 @@ const Widget = () => {
     setPosition({ x: y + ui.deltaY, y: y + ui.deltaY });
   };
 
-  const toggleFixeWidget = () => {
+  const fixWidget = () => {
     setPosition({ x: 0, y: 0 });
     setDeltaPosition({ x: 0, y: 0 });
-    setFixe(!fixe);
-    setHeight('100%')
+    setFixe(false);
+    setDimension({ height: "100%", width: "600px" });
+    setInitialDimension({
+      x: widgetContainerRef.current.offsetHeight,
+      y: widgetContainerRef.current.offsetWidth,
+    });
   };
 
-  let onStart = () => {
+  const defixWidget = () => {
+    setFixe(true);
+    setDimension({
+      height: initialDimension.height,
+      width: initialDimension.width,
+    });
+  };
+
+  const onStart = () => {
     let ad = activeDrags + 1;
     setActiveDrags(ad);
   };
 
-  let onStop = () => {
+  const onStop = () => {
     let ad = activeDrags - 1;
     setActiveDrags(ad);
     setPosition({ x: deltaPosition.x, y: deltaPosition.y });
   };
   const dragHandlers = { onStart: onStart, onStop: onStop };
+
+  useEffect(() => {
+    props.fix ? fixWidget() : defixWidget();
+  }, [props.fix]);
 
   return (
     <Draggable
@@ -46,22 +65,21 @@ const Widget = () => {
       onStart={() => fixe}
       position={position}
     >
-      <div className="box no-cursor widgetContainer" style={{height: height}}>
-        <strong className="cursor widgetHeader" >
+      <div
+        className="box no-cursor widgetContainer"
+        style={{ height: dimension.height, width: dimension.width }}
+        ref={widgetContainerRef}
+      >
+        <strong className="cursor widgetHeader">
           <div className="widgetTitle">Drag here</div>
 
           <div className="widgetCustomize">
-            <div className="minimizeWidget">
-              <ArrowLeftIcon></ArrowLeftIcon>
-            </div>
+            <div className="minimizeWidget"></div>
             <div className="maximizeWidget"></div>
             <div className="closeWidget"></div>
-            <div className="fixeWidget" onClick={toggleFixeWidget}></div>
           </div>
         </strong>
-        <div className="widgetBody">
-         
-        </div>
+        <div className="widgetBody">{props.children}</div>
       </div>
     </Draggable>
   );

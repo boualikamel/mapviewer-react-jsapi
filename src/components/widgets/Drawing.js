@@ -3,17 +3,14 @@ import React, { useRef, useEffect } from "react";
 import Graphic from "@arcgis/core/Graphic";
 import Draw from "@arcgis/core/views/draw/Draw";
 import { view } from "../../config/map";
-import { Button, Tooltip } from "antd";
-
 
 const Drawing = () => {
   const ref = useRef(null);
- 
+
   const draw = new Draw({
     view: view,
   });
- 
- 
+
   useEffect(() => {
     const drawPolyline = (e) => {
       const action = draw.create("polyline");
@@ -56,16 +53,15 @@ const Drawing = () => {
 
       view.graphics.add(graphic);
     };
- 
-    
+
     ref.current = drawPolyline;
   }, []);
   return (
-    <Tooltip title="Draw a line">
-      <Button type="primary" shape="round" onClick={() => ref.current()}>
+    <div>
+      <button type="primary" onClick={() => ref.current()}>
         Drawing
-      </Button>
-    </Tooltip>
+      </button>
+    </div>
   );
 };
 
