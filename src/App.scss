@@ -24,7 +24,10 @@ body,
     right: 0;
     background-color: gray;
     display: flex;
-
+    .widgetList {
+      height: 100%;
+      width: 100%;
+    }
     .webmap {
       padding: 0;
       margin: 0;

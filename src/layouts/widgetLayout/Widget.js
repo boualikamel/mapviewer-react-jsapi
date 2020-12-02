@@ -12,6 +12,8 @@ const Widget = (props) => {
     width: "600px",
   });
   const [initialDimension, setInitialDimension] = useState({});
+  const [initialPosition, setInitialPosition] = useState({ x: 0, y: 0 });
+
   const handleDrag = (e, ui) => {
     const { x, y } = deltaPosition;
     setDeltaPosition({
@@ -22,18 +24,22 @@ const Widget = (props) => {
   };
 
   const fixWidget = () => {
+    setInitialPosition({ ...position });
+    setInitialDimension({
+      height: widgetContainerRef.current.offsetHeight,
+      width: widgetContainerRef.current.offsetWidth,
+    });
+    console.log( widgetContainerRef.current.offsetHeight)
     setPosition({ x: 0, y: 0 });
     setDeltaPosition({ x: 0, y: 0 });
     setFixe(false);
     setDimension({ height: "100%", width: "600px" });
-    setInitialDimension({
-      x: widgetContainerRef.current.offsetHeight,
-      y: widgetContainerRef.current.offsetWidth,
-    });
   };
 
   const defixWidget = () => {
     setFixe(true);
+    setPosition({ ...initialPosition })
+    setDeltaPosition({ ...initialPosition })
     setDimension({
       height: initialDimension.height,
       width: initialDimension.width,
@@ -43,6 +49,7 @@ const Widget = (props) => {
   const onStart = () => {
     let ad = activeDrags + 1;
     setActiveDrags(ad);
+    return fixe;
   };
 
   const onStop = () => {
@@ -50,6 +57,7 @@ const Widget = (props) => {
     setActiveDrags(ad);
     setPosition({ x: deltaPosition.x, y: deltaPosition.y });
   };
+
   const dragHandlers = { onStart: onStart, onStop: onStop };
 
   useEffect(() => {
@@ -62,16 +70,20 @@ const Widget = (props) => {
       bounds="parent"
       onDrag={handleDrag}
       {...dragHandlers}
-      onStart={() => fixe}
       position={position}
     >
       <div
         className="box no-cursor widgetContainer"
-        style={{ height: dimension.height, width: dimension.width }}
+        style={{
+          zIndex: props.zIndex,
+          height: dimension.height,
+          width: dimension.width,
+        }}
         ref={widgetContainerRef}
+        onMouseDownCapture={(e) => props.upWidget(props.id)}
       >
         <strong className="cursor widgetHeader">
-          <div className="widgetTitle">Drag here</div>
+          <div className="widgetTitle">{props.title}</div>
 
           <div className="widgetCustomize">
             <div className="minimizeWidget"></div>
