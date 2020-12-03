@@ -8,14 +8,9 @@ body,
   height: 100%;
   width: 100%;
   position: relative;
-  .header {
-    position: absolute;
-    width: 100%;
-    height: $header-height;
-    .button-sidebar {
-      left: 0;
-    }
-  }
+  
+  @import "./layouts/header/header.scss";
+
   .mapContainer {
     height: calc(100% - #{$header-height});
     width: 100%;
@@ -35,7 +30,6 @@ body,
       width: 100%;
       position: absolute;
     }
-
     @import "./layouts/sidebar/sidebar.scss";
     @import "./layouts/widgetLayout/widget.scss";
   }

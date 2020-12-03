@@ -6,8 +6,8 @@ import LHeader from "./layouts/header/Header";
 
 import "@arcgis/core/assets/esri/themes/dark/main.css";
 import "./App.scss";
-import { Layout } from "antd";
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+// import { Layout } from "antd";
+// import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 import WidgetList from "./config/widgetList";
 
@@ -18,13 +18,13 @@ const App = () => {
   };
   return (
     <AppProvider>
-      <Layout className="layout">
+      
         <LHeader click={switchMode} />
         <div className="mapContainer">
           <WebMapView />
           <WidgetList fix={fix} />
         </div>
-      </Layout>
+   
     </AppProvider>
   );
 };

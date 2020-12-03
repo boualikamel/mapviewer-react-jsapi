@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import Draggable from "react-draggable";
+import {Paper, Box, Typography,Fab } from "@material-ui/core";
+import AddIcon from '@material-ui/icons/Add';
+import CloseIcon from '@material-ui/icons/Close';
+import CropFreeIcon from '@material-ui/icons/CropFree';
 
 const Widget = (props) => {
   const widgetContainerRef = useRef(null);
@@ -29,7 +33,6 @@ const Widget = (props) => {
       height: widgetContainerRef.current.offsetHeight,
       width: widgetContainerRef.current.offsetWidth,
     });
-    console.log( widgetContainerRef.current.offsetHeight)
     setPosition({ x: 0, y: 0 });
     setDeltaPosition({ x: 0, y: 0 });
     setFixe(false);
@@ -38,8 +41,8 @@ const Widget = (props) => {
 
   const defixWidget = () => {
     setFixe(true);
-    setPosition({ ...initialPosition })
-    setDeltaPosition({ ...initialPosition })
+    setPosition({ ...initialPosition });
+    setDeltaPosition({ ...initialPosition });
     setDimension({
       height: initialDimension.height,
       width: initialDimension.width,
@@ -72,7 +75,8 @@ const Widget = (props) => {
       {...dragHandlers}
       position={position}
     >
-      <div
+      <Paper
+        elevation={3}
         className="box no-cursor widgetContainer"
         style={{
           zIndex: props.zIndex,
@@ -82,17 +86,18 @@ const Widget = (props) => {
         ref={widgetContainerRef}
         onMouseDownCapture={(e) => props.upWidget(props.id)}
       >
-        <strong className="cursor widgetHeader">
-          <div className="widgetTitle">{props.title}</div>
+        <strong>
+        <Box className="cursor widgetHeader " bgcolor="primary.main" color='primary.contrastText'>
+          <Typography className="widgetTitle">{props.title}</Typography>
 
           <div className="widgetCustomize">
-            <div className="minimizeWidget"></div>
-            <div className="maximizeWidget"></div>
-            <div className="closeWidget"></div>
+            <Fab size="small" className="maximizeWidget"  aria-label="add"><CropFreeIcon /></Fab>
+            <Fab  size="small" className="closeWidget"  aria-label="add">< CloseIcon/></Fab>
           </div>
+        </Box>
         </strong>
-        <div className="widgetBody">{props.children}</div>
-      </div>
+        <Paper className="widgetBody">{props.children}</Paper>
+      </Paper>
     </Draggable>
   );
 };
