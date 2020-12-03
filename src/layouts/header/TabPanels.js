@@ -17,9 +17,6 @@ export default function TabPanels() {
       <Tab label="Menu 3" />
       <Tab label="Menu 1" />
       <Tab label="Menu 2" />
-      <Tab label="Menu 5" />
-      <Tab label="Menu 6" />
-
     </Tabs>
   );
 }

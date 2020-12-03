@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Draggable from "react-draggable";
-import {Paper, Box, Typography,Fab } from "@material-ui/core";
-import AddIcon from '@material-ui/icons/Add';
-import CloseIcon from '@material-ui/icons/Close';
-import CropFreeIcon from '@material-ui/icons/CropFree';
+import { Paper, Box, Typography, Fab } from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/Close";
+import CropFreeIcon from "@material-ui/icons/CropFree";
 
 const Widget = (props) => {
   const widgetContainerRef = useRef(null);
@@ -17,7 +16,8 @@ const Widget = (props) => {
   });
   const [initialDimension, setInitialDimension] = useState({});
   const [initialPosition, setInitialPosition] = useState({ x: 0, y: 0 });
-
+  const [display, setDisplay] = useState("block");
+  const [maximize, setMaximize] = useState(true);
   const handleDrag = (e, ui) => {
     const { x, y } = deltaPosition;
     setDeltaPosition({
@@ -61,6 +61,26 @@ const Widget = (props) => {
     setPosition({ x: deltaPosition.x, y: deltaPosition.y });
   };
 
+  const closeWidget = () => {
+    setDisplay("none");
+  };
+  const maximizeWidget = () => {
+    if (maximize) {
+      setInitialDimension({
+        height: widgetContainerRef.current.offsetHeight,
+        width: widgetContainerRef.current.offsetWidth,
+      });
+      setInitialPosition({ ...position });
+      setDimension({ height: "100%", width: "100%" });
+      setPosition({ x: 0, y: 0 });
+      setMaximize(!maximize);
+    } else {
+      setDimension({ ...initialDimension });
+      setPosition({ ...initialPosition });
+      setMaximize(!maximize);
+    }
+  };
+
   const dragHandlers = { onStart: onStart, onStop: onStop };
 
   useEffect(() => {
@@ -82,19 +102,38 @@ const Widget = (props) => {
           zIndex: props.zIndex,
           height: dimension.height,
           width: dimension.width,
+          display: display,
         }}
         ref={widgetContainerRef}
         onMouseDownCapture={(e) => props.upWidget(props.id)}
       >
         <strong>
-        <Box className="cursor widgetHeader " bgcolor="primary.main" color='primary.contrastText'>
-          <Typography className="widgetTitle">{props.title}</Typography>
+          <Box
+            className="cursor widgetHeader "
+            bgcolor="primary.main"
+            color="primary.contrastText"
+          >
+            <Typography className="widgetTitle">{props.title}</Typography>
 
-          <div className="widgetCustomize">
-            <Fab size="small" className="maximizeWidget"  aria-label="add"><CropFreeIcon /></Fab>
-            <Fab  size="small" className="closeWidget"  aria-label="add">< CloseIcon/></Fab>
-          </div>
-        </Box>
+            <div className="widgetCustomize">
+              <Fab
+                size="small"
+                className="maximizeWidget"
+                onClick={maximizeWidget}
+                aria-label="add"
+              >
+                <CropFreeIcon />
+              </Fab>
+              <Fab
+                size="small"
+                className="closeWidget"
+                onClick={closeWidget}
+                aria-label="add"
+              >
+                <CloseIcon />
+              </Fab>
+            </div>
+          </Box>
         </strong>
         <Paper className="widgetBody">{props.children}</Paper>
       </Paper>
