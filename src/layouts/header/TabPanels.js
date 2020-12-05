@@ -14,9 +14,6 @@ export default function TabPanels() {
       onChange={handleChange}
       aria-label="tabs example"
     >
-      <Tab label="Menu 3" />
-      <Tab label="Menu 1" />
-      <Tab label="Menu 2" />
     </Tabs>
   );
 }

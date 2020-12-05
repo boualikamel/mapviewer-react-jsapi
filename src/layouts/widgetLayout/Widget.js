@@ -16,8 +16,9 @@ const Widget = (props) => {
   });
   const [initialDimension, setInitialDimension] = useState({});
   const [initialPosition, setInitialPosition] = useState({ x: 0, y: 0 });
-  const [display, setDisplay] = useState("block");
+  const [display, setDisplay] = useState("flex");
   const [maximize, setMaximize] = useState(true);
+  
   const handleDrag = (e, ui) => {
     const { x, y } = deltaPosition;
     setDeltaPosition({
@@ -26,7 +27,6 @@ const Widget = (props) => {
     });
     setPosition({ x: y + ui.deltaY, y: y + ui.deltaY });
   };
-
   const fixWidget = () => {
     setInitialPosition({ ...position });
     setInitialDimension({
@@ -38,7 +38,6 @@ const Widget = (props) => {
     setFixe(false);
     setDimension({ height: "100%", width: "600px" });
   };
-
   const defixWidget = () => {
     setFixe(true);
     setPosition({ ...initialPosition });
@@ -48,19 +47,16 @@ const Widget = (props) => {
       width: initialDimension.width,
     });
   };
-
   const onStart = () => {
     let ad = activeDrags + 1;
     setActiveDrags(ad);
     return fixe;
   };
-
   const onStop = () => {
     let ad = activeDrags - 1;
     setActiveDrags(ad);
     setPosition({ x: deltaPosition.x, y: deltaPosition.y });
   };
-
   const closeWidget = () => {
     setDisplay("none");
   };
@@ -81,8 +77,6 @@ const Widget = (props) => {
     }
   };
 
-  const dragHandlers = { onStart: onStart, onStop: onStop };
-
   useEffect(() => {
     props.fix ? fixWidget() : defixWidget();
   }, [props.fix]);
@@ -92,7 +86,8 @@ const Widget = (props) => {
       handle="strong"
       bounds="parent"
       onDrag={handleDrag}
-      {...dragHandlers}
+      onStart={onStart} 
+      onStop={onStop} 
       position={position}
     >
       <Paper
