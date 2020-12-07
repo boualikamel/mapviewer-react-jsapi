@@ -10,6 +10,8 @@ body,
   position: relative;
   
   @import "./layouts/header/header.scss";
+  @import "./layouts/sidebar/sidebar.scss";
+
 
   .mapContainer {
     height: calc(100% - #{$header-height});
@@ -30,7 +32,7 @@ body,
       width: 100%;
       position: absolute;
     }
-    @import "./layouts/sidebar/sidebar.scss";
+
     @import "./layouts/widgetLayout/widget.scss";
   }
 }

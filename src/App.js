@@ -4,7 +4,7 @@ import { AppProvider } from "./contexts/AppContext";
 import { WebMapView } from "./components/WebMapView";
 import LHeader from "./layouts/header/Header";
 
-import "@arcgis/core/assets/esri/themes/dark/main.css";
+import "@arcgis/core/assets/esri/themes/light/main.css";
 import "./App.scss";
 // import { Layout } from "antd";
 // import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
@@ -18,13 +18,11 @@ const App = () => {
   };
   return (
     <AppProvider>
-      
-        <LHeader click={switchMode} />
-        <div className="mapContainer">
-          <WebMapView />
-          <WidgetList fix={fix} />
-        </div>
-   
+      <LHeader click={switchMode} />
+      <div className="mapContainer">
+        <WebMapView />
+        <WidgetList fix={fix} />
+      </div>
     </AppProvider>
   );
 };

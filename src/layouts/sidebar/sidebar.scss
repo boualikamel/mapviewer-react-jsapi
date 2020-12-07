@@ -1,7 +1,28 @@
+$sidebar-width: 210px;
 .sidebar {
-    height: 100%;
-    width: 300px;
-    position: absolute;
-    right: 0;
-    z-index: 100;
+  right: 0%;
+  z-index: 500;
+  height: calc(100% - #{$header-height});
+  width: $sidebar-width;
+  position: fixed;
+  overflow-y: auto;
+  bottom: 0;
+  flex-direction: column;
+  transition: all 0.5s;
+  .headerSidebar {
+    .MuiTabs-flexContainer {
+      width: 100%;
+    }
+    .MuiTab-root {
+      flex: 1;
+      max-width: unset;
+      min-width: unset;
+    }
+  
   }
+  .tab {
+    .MuiBox-root {
+      padding: 0;
+    }
+  }
+}

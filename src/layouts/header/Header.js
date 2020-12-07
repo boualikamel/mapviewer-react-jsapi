@@ -15,16 +15,13 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import PublicIcon from "@material-ui/icons/Public";
 import TabIcon from "@material-ui/icons/Tab";
 import TabPanels from "./TabPanels";
-import Drawer from "@material-ui/core/Drawer";
-
-import Divider from "@material-ui/core/Divider";
 import MenuIcon from "@material-ui/icons/Menu";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import Sidebar from "../sidebar/Sidebar";
 
 export default function LHeader(props) {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [openDrawer, setOpenDrawer] = useState(false);
+  const [positionSidebar, setPositionSidebar] = useState({ right: "-210px" });
+  const [openedSidebar, setOpenedSidebar] = useState(false);
 
   const isMenuOpen = Boolean(anchorEl);
 
@@ -36,11 +33,13 @@ export default function LHeader(props) {
   };
 
   const handleDrawerOpen = () => {
-    setOpenDrawer(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpenDrawer(false);
+    if (openedSidebar) {
+      setPositionSidebar({ right: "0%" });
+      setOpenedSidebar(!openedSidebar);
+    } else {
+      setPositionSidebar({ right: "-210px" });
+      setOpenedSidebar(!openedSidebar);
+    }
   };
 
   return (
@@ -91,16 +90,7 @@ export default function LHeader(props) {
             <MenuIcon />
           </IconButton>
         </Toolbar>
-        <Drawer variant="persistent" anchor="right" open={openDrawer}>
-          <div>
-            <IconButton onClick={handleDrawerClose}>
-              <ChevronLeftIcon />
-            </IconButton>
-          </div>
-          <Divider />
-
-          <Divider />
-        </Drawer>
+        <Sidebar positionSidebar={positionSidebar} />
       </AppBar>
       <Menu
         anchorEl={anchorEl}
