@@ -17,10 +17,11 @@ import TabIcon from "@material-ui/icons/Tab";
 import TabPanels from "./TabPanels";
 import MenuIcon from "@material-ui/icons/Menu";
 import Sidebar from "../sidebar/Sidebar";
+import MenuWidget from './MenuWidget'
 
 export default function LHeader(props) {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [positionSidebar, setPositionSidebar] = useState({ right: "-210px" });
+  const [positionSidebar, setPositionSidebar] = useState({ right: "-250px" });
   const [openedSidebar, setOpenedSidebar] = useState(false);
 
   const isMenuOpen = Boolean(anchorEl);
@@ -37,14 +38,14 @@ export default function LHeader(props) {
       setPositionSidebar({ right: "0%" });
       setOpenedSidebar(!openedSidebar);
     } else {
-      setPositionSidebar({ right: "-210px" });
+      setPositionSidebar({ right: "-250px" });
       setOpenedSidebar(!openedSidebar);
     }
   };
 
   return (
     <div className="header">
-      <AppBar position="static">
+      <AppBar >
         <Toolbar>
           <PublicIcon className="iconApp" />
           <Typography variant="h6" noWrap>

@@ -1,12 +1,10 @@
 .widgetContainer {
-  background-color: #fff;
-
   display: flex;
   flex-direction: column;
-  // border-radius: 5px;
   overflow: hidden;
-  // box-shadow: -2px 3px 26px -4px rgba(0,0,0,0.75);
   position: absolute;
+  min-width: 200px;
+  min-height: 100px;
   resize: both;
 
   .widgetHeader {
@@ -34,34 +32,24 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        // color: #242424;
         font-size: 0.1rem;
         min-height: unset;
         height: 25px;
         width: 25px;
-        svg{
+        svg {
           width: 0.7em;
         }
-      // background-color: rgb(72, 75, 107);
       }
       .minimizeWidget {
- 
-        // background-color: rgb(223, 179, 179);
       }
       .maximizeWidget {
-  
-        // background-color: rgb(184, 184, 235);
       }
       .closeWidget {
-    
-        // background-color: rgb(167, 220, 167);
       }
-
     }
   }
   .widgetBody {
     height: 100%;
-
     padding: 10px;
   }
 }

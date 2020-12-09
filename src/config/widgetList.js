@@ -11,7 +11,7 @@ const WidgetList = (props) => {
       menuTitle: "",
       body: <Affaire />,
       icon: "",
-      initialSize: "",
+      initialSize: { height:"400px", width:"400px"},
       initalPosition: "",
       zIndex: 0,
     },
@@ -19,8 +19,8 @@ const WidgetList = (props) => {
       title: "Drawing",
       menuTitle: "",
       body: <Drawing />,
-      icon: "",
-      initialSize: "",
+      icon: "",   
+      initialSize: { height:"500px", width:"500px"},
       initalPosition: "",
       zIndex: 0,
     },
@@ -29,8 +29,9 @@ const WidgetList = (props) => {
       menuTitle: "",
       body: <Statistique />,
       icon: "",
-      initialSize: "",
       initalPosition: "",
+      // initialSize: { height:"600px", width:"600px"},
+
       zIndex: 0,
     },
   ]);
@@ -69,6 +70,7 @@ const WidgetList = (props) => {
             title={obj.title}
             zIndex={obj.zIndex}
             upWidget={upWidget}
+            initialDimension={obj.initialSize}
           >
             {obj.body}
           </Widget>

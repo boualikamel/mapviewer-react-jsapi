@@ -1,11 +1,4 @@
-// .header {
-//     position: absolute;
-//     width: 100%;
-//     height: $header-height;
-//     .button-sidebar {
-//       left: 0;
-//     }
-//   }
+
 
 
 .iconApp{
@@ -16,10 +9,11 @@
     flex-grow: 1;
     height: $header-height;
     position: relative;
-}
-.spacingBetween{
-    flex-grow: 1;
-}
-.buttonSidebar{
-    margin-left: 16px;
+    .spacingBetween{
+        flex-grow: 1;
+    }
+    .buttonSidebar{
+        margin-left: 16px;
+    }
+
 }
