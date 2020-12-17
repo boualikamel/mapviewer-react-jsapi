@@ -1,109 +1,55 @@
 import React, { useState } from "react";
+import { Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Badge,
-  MenuItem,
-  Menu,
-  Typography,
-} from "@material-ui/core";
-
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import PublicIcon from "@material-ui/icons/Public";
-import TabIcon from "@material-ui/icons/Tab";
-import TabPanels from "./TabPanels";
-import MenuIcon from "@material-ui/icons/Menu";
+  faAlignRight,
+  faBell,
+  faUser,
+  faGlobeEurope,
+} from "@fortawesome/free-solid-svg-icons";
 import Sidebar from "../sidebar/Sidebar";
-import MenuWidget from './MenuWidget'
 
-export default function LHeader(props) {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [positionSidebar, setPositionSidebar] = useState({ right: "-250px" });
-  const [openedSidebar, setOpenedSidebar] = useState(false);
-
-  const isMenuOpen = Boolean(anchorEl);
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleDrawerOpen = () => {
-    if (openedSidebar) {
-      setPositionSidebar({ right: "0%" });
-      setOpenedSidebar(!openedSidebar);
-    } else {
-      setPositionSidebar({ right: "-250px" });
-      setOpenedSidebar(!openedSidebar);
-    }
-  };
-
+export default function LHeader() {
+  const [hideSidebar, setHideSidebar] = useState(false);
   return (
-    <div className="header">
-      <AppBar >
-        <Toolbar>
-          <PublicIcon className="iconApp" />
-          <Typography variant="h6" noWrap>
-            Oliviewer
-          </Typography>
-          <TabPanels />
-          <div className="spacingBetween" />
-          <div className="menuRight">
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              aria-label="show 17 new notifications"
-              color="inherit"
-              onClick={props.click}
+    <header className="header">
+      <Navbar className="header-bar" bg="light" expand="lg">
+        <Navbar.Brand className="header-logo" href="#home">
+          <FontAwesomeIcon icon={faGlobeEurope} />
+          <p>Map Viewer</p>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse className="header-menu" id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link className="header-menu-elem">Home</Nav.Link>
+            <Nav.Link className="header-menu-elem">Link</Nav.Link>
+            <NavDropdown
+              className="header-menu-elem"
+              title="Dropdown"
+              id="basic-nav-dropdown"
             >
-              <TabIcon />
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </div>
-          <IconButton
-            className="buttonSidebar"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
+              <NavDropdown.Item>Action</NavDropdown.Item>
+              <NavDropdown.Item>Another action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+        <div className="right-content">
+          <Button variant="transparent">
+            <FontAwesomeIcon icon={faBell} />
+          </Button>
+          <Button variant="transparent">
+            <FontAwesomeIcon icon={faUser} />
+          </Button>
+          <Button
+            variant="transparent"
+            onClick={() => setHideSidebar(!hideSidebar)}
           >
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-        <Sidebar positionSidebar={positionSidebar} />
-      </AppBar>
-      <Menu
-        anchorEl={anchorEl}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        keepMounted
-        transformOrigin={{ vertical: "top", horizontal: "right" }}
-        open={isMenuOpen}
-        onClose={handleMenuClose}
-      >
-        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-        <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      </Menu>
-    </div>
+            <FontAwesomeIcon icon={faAlignRight} />
+          </Button>
+        </div>
+      </Navbar>
+      <Sidebar hide={hideSidebar}></Sidebar>
+    </header>
   );
 }

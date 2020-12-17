@@ -90,8 +90,6 @@ const Widget = (props) => {
 
   useEffect(() => {
     props.fix ? fixWidget() : defixWidget();
-
-   
   }, [props.fix]);
 
   return (
@@ -103,9 +101,8 @@ const Widget = (props) => {
       onStop={onStop}
       position={position}
     >
-      <Paper
-        elevation={3}
-        className="box no-cursor widgetContainer"
+      <div
+        className=" widgetContainer"
         style={{
           zIndex: props.zIndex,
           height: dimension.height,
@@ -116,35 +113,25 @@ const Widget = (props) => {
         onMouseDownCapture={(e) => props.upWidget(props.id)}
       >
         <strong>
-          <Box
-            className="cursor widgetHeader "
-            bgcolor="primary.main"
-            color="primary.contrastText"
-          >
-            <Typography className="widgetTitle">{props.title}</Typography>
+          <div className="widgetHeader bg-light">
+            <p className="widgetTitle">{props.title}</p>
 
             <div className="widgetCustomize">
-              <Fab
+              <div
                 size="small"
                 className="maximizeWidget"
                 onClick={maximizeWidget}
-                aria-label="add"
               >
                 <CropFreeIcon />
-              </Fab>
-              <Fab
-                size="small"
-                className="closeWidget"
-                onClick={closeWidget}
-                aria-label="add"
-              >
+              </div>
+              <div className="closeWidget" onClick={closeWidget}>
                 <CloseIcon />
-              </Fab>
+              </div>
             </div>
-          </Box>
+          </div>
         </strong>
-        <Paper className="widgetBody">{props.children}</Paper>
-      </Paper>
+        <div className="widgetBody bg-light">{props.children}</div>
+      </div>
     </Draggable>
   );
 };

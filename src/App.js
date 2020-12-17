@@ -5,6 +5,7 @@ import { WebMapView } from "./components/WebMapView";
 import LHeader from "./layouts/header/Header";
 
 import "@arcgis/core/assets/esri/themes/light/main.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.scss";
 
 import WidgetList from "./config/widgetList";

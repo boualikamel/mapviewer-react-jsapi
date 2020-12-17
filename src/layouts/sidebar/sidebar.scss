@@ -9,6 +9,23 @@ $sidebar-width: 250px;
   bottom: 0;
   flex-direction: column;
   transition: all 0.5s;
+  background-color: #fff;
+  .nav-tabs{
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: center;
+    width: 100%;
+    .nav-item{
+      flex: 1;
+      border-radius: 0 !important;
+      color: black;
+      &.active{
+        background-color: rgb(236, 236, 236);
+        border-bottom: rgb(105, 104, 104) 1px solid;
+      }
+    }
+  }
+
   .headerSidebar {
     .MuiTabs-flexContainer {
       width: 100%;

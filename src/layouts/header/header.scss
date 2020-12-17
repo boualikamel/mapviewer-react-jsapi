@@ -1,19 +1,65 @@
-
-
-
-.iconApp{
-    margin-right: 10px;
+.header {
+  flex-grow: 1;
+  height: $header-height;
+  position: relative;
+  z-index: 5;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  .header-bar {
+    height: $header-height;
+    .header-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        margin-right: 10px;
+      }
+      p {
+        display: inline-block;
+        margin: unset;
+        font-size: 1.1rem;
+        @media only screen and (max-width: 992px) {
+          display: none;
+        }
+      }
+    }
+    .header-menu {
+      .header-menu-elem {
+        padding-left: 0.8rem;
+      }
+    }
+    .right-content {
+      button{
+        margin: 15px;
+      }
+    }
+  }
 }
 
-.header{
-    flex-grow: 1;
-    height: $header-height;
-    position: relative;
-    .spacingBetween{
-        flex-grow: 1;
+@media only screen and (max-width: 992px) {
+  .header {
+    .header-bar {
+      .header-menu {
+        background: inherit;
+        margin: 0;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      .right-content {
+        width: 70%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        button {
+          flex: 1;
+        }
+      }
     }
-    .buttonSidebar{
-        margin-left: 16px;
-    }
-
+  }
 }
