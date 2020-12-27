@@ -1,11 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap');
+
 .header {
   flex-grow: 1;
   height: $header-height;
   position: relative;
   z-index: 5;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background:#183153;
+  font-size: 14px;
   .header-bar {
     height: $header-height;
+    *{
+      color: azure;
+    }
+   
     .header-logo {
       display: flex;
       justify-content: center;

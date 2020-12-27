@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Draggable from "react-draggable";
-import { Paper, Box, Typography, Fab } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
-import CropFreeIcon from "@material-ui/icons/CropFree";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { faTimes, faExpandAlt } from "@fortawesome/free-solid-svg-icons";
 const Widget = (props) => {
   const widgetContainerRef = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -24,7 +23,7 @@ const Widget = (props) => {
       };
   });
   const [initialPosition, setInitialPosition] = useState({ x: 0, y: 0 });
-  const [display, setDisplay] = useState("flex");
+  // const [display, setDisplay] = useState(props.display);
   const [maximize, setMaximize] = useState(true);
 
   const handleDrag = (e, ui) => {
@@ -66,9 +65,7 @@ const Widget = (props) => {
       width: initialDimension.width,
     });
   };
-  const closeWidget = () => {
-    setDisplay("none");
-  };
+
   const maximizeWidget = () => {
     if (maximize) {
       setInitialDimension({
@@ -107,25 +104,25 @@ const Widget = (props) => {
           zIndex: props.zIndex,
           height: dimension.height,
           width: dimension.width,
-          display: display,
+          display: props.display,
         }}
         ref={widgetContainerRef}
         onMouseDownCapture={(e) => props.upWidget(props.id)}
       >
         <strong>
-          <div className="widgetHeader bg-light">
+          <div className="widgetHeader ">
             <p className="widgetTitle">{props.title}</p>
 
             <div className="widgetCustomize">
               <div
                 size="small"
-                className="maximizeWidget"
+                className="circle maximizeWidget"
                 onClick={maximizeWidget}
               >
-                <CropFreeIcon />
+                <FontAwesomeIcon icon={faExpandAlt} />
               </div>
-              <div className="closeWidget" onClick={closeWidget}>
-                <CloseIcon />
+              <div className="circle closeWidget" onClick={()=>{props.closeWidget(props.id)}}>
+                <FontAwesomeIcon icon={faTimes} />
               </div>
             </div>
           </div>

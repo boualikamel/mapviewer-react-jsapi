@@ -1,41 +1,10 @@
 import React, { useState } from "react";
-import Drawing from "../components/widgets/Drawing";
-import Affaire from "../components/widgets/Affaire";
-import Statistique from "../components/widgets/Statistique";
-
+// import Drawing from "../components/widgets/Drawing";
+// import Affaire from "../components/widgets/Affaire";
+// import Statistique from "../components/widgets/Statistique";
 import Widget from "../layouts/widgetLayout/Widget";
 const WidgetList = (props) => {
-  const [listWidget, setListWidget] = useState([
-    {
-      title: "Affaire",
-      menuTitle: "",
-      body: <Affaire />,
-      icon: "",
-      initialSize: { height:"400px", width:"400px"},
-      initalPosition: "",
-      zIndex: 0,
-    },
-    {
-      title: "Drawing",
-      menuTitle: "",
-      body: <Drawing />,
-      icon: "",   
-      initialSize: { height:"500px", width:"500px"},
-      initalPosition: "",
-      zIndex: 0,
-    },
-    {
-      title: "Statistique",
-      menuTitle: "",
-      body: <Statistique />,
-      icon: "",
-      initalPosition: "",
-      // initialSize: { height:"600px", width:"600px"},
-
-      zIndex: 0,
-    },
-  ]);
-  //   const [zIndex, setZIndex] = useState(0);
+  const [listWidget, setListWidget] = useState(props.listWidget);
 
   const upWidget = (id) => {
     let objWidgets = [...listWidget];
@@ -58,19 +27,31 @@ const WidgetList = (props) => {
     });
     setListWidget(objWidgets);
   };
+  const closeWidget = (index) => {
+    console.log("index", index);
+    let objWidgets = [...listWidget];
+    objWidgets[index].display = "none";
+    setListWidget(objWidgets);
+  };
+
+  const rend = props.listWidget.filter((widget, i) => {
+    return widget.rendered === true;
+  });
 
   return (
     <div className="widgetList">
-      {listWidget.map((obj, i) => {
+      {rend.map((obj) => {
         return (
           <Widget
-            key={i}
-            id={i}
+            key={obj.i}
+            id={obj.i}
             fix={props.fix}
             title={obj.title}
             zIndex={obj.zIndex}
             upWidget={upWidget}
             initialDimension={obj.initialSize}
+            display={obj.display}
+            closeWidget={closeWidget}
           >
             {obj.body}
           </Widget>

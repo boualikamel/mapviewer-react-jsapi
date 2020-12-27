@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap');
+
+
 $header-height: 56px;
 
 html,
@@ -8,6 +11,7 @@ body,
   height: 100%;
   width: 100%;
   position: relative;
+  font-family: 'DM Sans', sans-serif;
   
   @import "./layouts/header/header.scss";
   @import "./layouts/sidebar/sidebar.scss";
@@ -32,7 +36,6 @@ body,
       width: 100%;
       position: absolute;
     }
-
     @import "./layouts/widgetLayout/widget.scss";
   }
 }
