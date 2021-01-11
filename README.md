@@ -7,7 +7,7 @@ This project is made for people who want to build a sig application quickly
 [Live preview](https://azouaoui-med.github.io/ostora-jsapi4/src/)
 
 ## Screenshots
-
+![Capture](https://user-images.githubusercontent.com/37594056/104164844-d5dda680-53f8-11eb-868c-f75f1a9a55e1.PNG)
 
 
 ## Quick start
