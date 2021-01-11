@@ -47,10 +47,6 @@ const Drawing = () => {
           join: "round",
         },
       });
-      // this.setState({
-      //   geom: graphic.geometry,
-      // });
-
       view.graphics.add(graphic);
     };
 
