@@ -32,6 +32,7 @@ npm start
 
 ## Resources
 *   [@arcgis/core](https://www.npmjs.com/package/@arcgis/core)
-*   [React](https://reactjs.org/)
-*   [antd](https://react-bootstrap.github.io/)
+*   [react](https://reactjs.org/)
+*   [antd](https://github.com/ant-design/ant-design/)
+*   [less](https://github.com/less/less.js/)
 *   [react-draggable](https://github.com/STRML/react-draggable)
