@@ -1,6 +1,6 @@
-# A web based mapviewer built with react and arcgis-js-api.
  ![image](https://user-images.githubusercontent.com/37594056/126824077-bacf2372-fdc6-4ff1-9e6d-69a02ec45737.png)
 
+# A web based mapviewer built with react and arcgis-js-api.
 This project is a configurable template for building web mapping application with [@arcgis/core](https://www.npmjs.com/package/@arcgis/core) and [reactjs](https://reactjs.org/).
 This project is made for people who want to build a webmap viewer application quickly
 
