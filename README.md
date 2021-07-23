@@ -16,7 +16,7 @@ npm start
 ```
 ## Features
 *   Based on React Hooks
-*   Based on Bootstrap 4
+*   Based on antd
 *   Full Built in LESS and ES6
 *   Draggable and Resizable widgets
 *   Easy to customize
