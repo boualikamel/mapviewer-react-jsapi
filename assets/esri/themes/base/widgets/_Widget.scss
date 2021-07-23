@@ -10,11 +10,19 @@
     font-family: $font-family;
     line-height: $line-height;
     background-color: $background-color;
+
     *,
     *:before,
     *:after {
       box-sizing: inherit;
     }
+
+    // Apply focus ring matching calcite components, for consistency.
+    *:focus-visible,
+    *:focus {
+      outline: 2px solid var(--calcite-ui-brand);
+    }
+
     &#{&}--disabled {
       & > * {
         pointer-events: none;
@@ -22,6 +30,7 @@
       }
     }
   }
+
   .esri-widget__anchor {
     text-decoration: none;
     color: $button-color;
@@ -32,7 +41,12 @@
       pointer-events: none;
       opacity: $opacity--disabled;
     }
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
   }
+
   .esri-widget__header {
     align-items: center;
     background-color: $background-color;
@@ -48,6 +62,7 @@
       display: flex;
       margin: 0;
       padding: 0;
+      text-align: initial;
       width: calc(100% - #{$header-button-width});
     }
     &-button {
@@ -65,6 +80,7 @@
       width: $header-button-width;
     }
   }
+
   .esri-widget__heading {
     color: $heading-color;
     font-weight: $font-weight__heading;
@@ -244,10 +260,10 @@
     font-size: $font-size;
     min-height: $button-height;
     justify-content: center;
+    word-break: normal;
+    white-space: normal;
     overflow: hidden;
     padding: $cap-spacing--half $side-spacing--half;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     width: 100%;
     transition: background-color 125ms ease-in-out, border 125ms ease-in-out;
     &:hover {
@@ -351,8 +367,11 @@
   }
 
   // Select
-  $select_caret: "data:image/svg+xml,%3Csvg width%3D%2732%27%20height%3D%2732%27%20viewBox%3D%270%200%2032%2032%27%20xmlns%3D%27http://www.w3.org/2000/svg%27%3E%3Cpath%20d%3D%27M11%2013l5%205.833L21%2013z%27%20fill%3D%27%23" +
-    str-slice(#{$interactive-font-color}, 2) + "%27%20fill-rule%3D%27nonzero%27/%3E%3C/svg%3E";
+
+  // From https://esri.github.io/calcite-ui-icons/#chevron-down
+  $select_caret: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-8 -8 32 32' width='32' height='32'%3E%3Cpath d='M8 11.207l-4-4V5.793l4 4 4-4v1.414z' fill='%23" +
+    str-slice(#{$interactive-font-color}, 2) + "' fillrule='nonzero'/%3E%3C/svg%3E";
+
   .esri-select {
     cursor: pointer;
     display: block;
