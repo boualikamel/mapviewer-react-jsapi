@@ -7,7 +7,7 @@ This project is made for people who want to build a sig application quickly
 [Live preview](https://boualikamel.github.io/mapviewer-react-jsapi/)
 
 ## Screenshots
-
+![Capture](https://user-images.githubusercontent.com/37594056/126821755-2c0d19fd-454f-4fa3-9ce5-4d357672af57.PNG)
 
 ## Quick start
 ```
