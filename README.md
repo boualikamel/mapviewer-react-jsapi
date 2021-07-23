@@ -1,7 +1,7 @@
-# A MapViewer Built with react and [`@arcgis/core`](https://www.npmjs.com/package/@arcgis/core)
+# A MapViewer Built with react and arcgis-js-api.
 This project is a configurable template for building web mapping application with [@arcgis/core](https://www.npmjs.com/package/@arcgis/core) and [reactjs](https://reactjs.org/).
 
-This project is made for people who want to build a sig application quickly
+This project is made for people who want to build a webmap viewer application quickly
 
 ## Demo
 [Live preview](https://boualikamel.github.io/mapviewer-react-jsapi/)
