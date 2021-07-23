@@ -1,4 +1,5 @@
 {
+  "homepage": "https://boualikamel.github.io/mapviewer-react-jsapi",
   "name": "testing-ant-cra",
   "version": "0.1.0",
   "private": true,
@@ -21,6 +22,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
+    "deploy": "gh-pages -d build",
     "copy": "ncp ./node_modules/@arcgis/core/assets ./public/assets",
     "eject": "react-scripts eject"
   },
@@ -45,6 +47,7 @@
   "devDependencies": {
     "@craco/craco": "^6.1.2",
     "antd-scss-theme-plugin": "^1.0.8",
-    "craco-less": "^1.17.1"
+    "craco-less": "^1.17.1",
+    "gh-pages": "^3.2.3"
   }
 }

@@ -1,36 +1,43 @@
-import React from 'react';
-import { Input, Select, InputNumber, DatePicker, AutoComplete, Cascader } from 'antd';
+import React from "react";
+import {
+  Input,
+  Select,
+  InputNumber,
+  DatePicker,
+  AutoComplete,
+  Cascader,
+} from "antd";
 
 const { Option } = Select;
 const { TextArea } = Input;
 const options = [
   {
-    value: 'zhejiang',
-    label: 'Zhejiang',
+    value: "Kamel",
+    label: "kamel",
     children: [
       {
-        value: 'hangzhou',
-        label: 'Hangzhou',
+        value: "Bouali",
+        label: "bouali",
         children: [
           {
-            value: 'xihu',
-            label: 'West Lake',
+            value: "gis",
+            label: "react",
           },
         ],
       },
     ],
   },
   {
-    value: 'jiangsu',
-    label: 'Jiangsu',
+    value: "antd",
+    label: "less",
     children: [
       {
-        value: 'nanjing',
-        label: 'Nanjing',
+        value: "material",
+        label: "hooks",
         children: [
           {
-            value: 'zhonghuamen',
-            label: 'Zhong Hua Men',
+            value: "redux ",
+            label: "use",
           },
         ],
       },
@@ -43,26 +50,34 @@ const Affaire = () => (
     <div className="site-input-group-wrapper">
       <br />
       <Input.Group compact>
-        <Input style={{ width: '50%' }} defaultValue="0571" />
-        <Input style={{ width: '50%' }} defaultValue="26888888" />
+        <Input style={{ width: "50%" }} defaultValue="0571" />
+        <Input style={{ width: "50%" }} defaultValue="26888888" />
       </Input.Group>
       <br />
       <Input.Group compact>
-        <Select defaultValue="Zhejiang">
-          <Option value="Zhejiang">Zhejiang</Option>
-          <Option value="Jiangsu">Jiangsu</Option>
+        <Select defaultValue="kamel">
+          <Option value="kamel">Kamel</Option>
+          <Option value="algiers">Algiers</Option>
         </Select>
-        <Input style={{ width: '50%' }} defaultValue="Xihu District, Hangzhou" />
+        <Input style={{ width: "50%" }} defaultValue="Algiers" />
       </Input.Group>
       <br />
       <Input.Group compact>
-        <Input.Search style={{ width: '40%' }} defaultValue="0571" />
-        <Input.Search allowClear style={{ width: '40%' }} defaultValue="26888888" />
+        <Input.Search style={{ width: "40%" }} defaultValue="0571" />
+        <Input.Search
+          allowClear
+          style={{ width: "40%" }}
+          defaultValue="26888888"
+        />
       </Input.Group>
       <br />
       <Input.Group compact>
-        <Input.Search allowClear style={{ width: '40%' }} defaultValue="0571" />
-        <Input.Search allowClear style={{ width: '40%' }} defaultValue="26888888" />
+        <Input.Search allowClear style={{ width: "40%" }} defaultValue="0571" />
+        <Input.Search
+          allowClear
+          style={{ width: "40%" }}
+          defaultValue="26888888"
+        />
       </Input.Group>
       <br />
       <Input.Group compact>
@@ -70,18 +85,18 @@ const Affaire = () => (
           <Option value="Option1">Option1</Option>
           <Option value="Option2">Option2</Option>
         </Select>
-        <Input style={{ width: '50%' }} defaultValue="input content" />
+        <Input style={{ width: "50%" }} defaultValue="input content" />
         <InputNumber />
       </Input.Group>
       <br />
       <Input.Group compact>
-        <Input style={{ width: '50%' }} defaultValue="input content" />
-        <DatePicker style={{ width: '50%' }} />
+        <Input style={{ width: "50%" }} defaultValue="input content" />
+        <DatePicker style={{ width: "50%" }} />
       </Input.Group>
       <br />
       <Input.Group compact>
-        <Input style={{ width: '30%' }} defaultValue="input content" />
-        <DatePicker.RangePicker style={{ width: '70%' }} />
+        <Input style={{ width: "30%" }} defaultValue="input content" />
+        <DatePicker.RangePicker style={{ width: "70%" }} />
       </Input.Group>
       <br />
       <Input.Group compact>
@@ -100,14 +115,17 @@ const Affaire = () => (
           <Option value="1">Between</Option>
           <Option value="2">Except</Option>
         </Select>
-        <Input style={{ width: 100, textAlign: 'center' }} placeholder="Minimum" />
+        <Input
+          style={{ width: 100, textAlign: "center" }}
+          placeholder="Minimum"
+        />
         <Input
           className="site-input-split"
           style={{
             width: 30,
             borderLeft: 0,
             borderRight: 0,
-            pointerEvents: 'none',
+            pointerEvents: "none",
           }}
           placeholder="~"
           disabled
@@ -116,25 +134,33 @@ const Affaire = () => (
           className="site-input-right"
           style={{
             width: 100,
-            textAlign: 'center',
+            textAlign: "center",
           }}
           placeholder="Maximum"
         />
       </Input.Group>
       <br />
       <Input.Group compact>
-        <Select defaultValue="Sign Up" style={{ width: '30%' }}>
+        <Select defaultValue="Sign Up" style={{ width: "30%" }}>
           <Option value="Sign Up">Sign Up</Option>
           <Option value="Sign In">Sign In</Option>
         </Select>
-        <AutoComplete style={{ width: '70%' }} placeholder="Email" options={[{ value: 'text 1' }, { value: 'text 2' }]} />
+        <AutoComplete
+          style={{ width: "70%" }}
+          placeholder="Email"
+          options={[{ value: "text 1" }, { value: "text 2" }]}
+        />
       </Input.Group>
       <br />
       <Input.Group compact>
-        <Select style={{ width: '30%' }} defaultValue="Home">
+        <Select style={{ width: "30%" }} defaultValue="Home">
           <Option value="Home">Home</Option>
-         </Select>
-        <Cascader style={{ width: '70%' }} options={options} placeholder="Select Address" />
+        </Select>
+        <Cascader
+          style={{ width: "70%" }}
+          options={options}
+          placeholder="Select Address"
+        />
       </Input.Group>
       <br />
       <Input.Group compact>

@@ -4,18 +4,14 @@ import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
  * **/ 
 export const featureLayers = [
   new FeatureLayer({
-    url: 'gis/arcgis/rest/services/harmohta/common_geo/FeatureServer/2',
-    title: 'polygon',
-    outFields: ['couche'],
+    url: 'https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Road_Closure/FeatureServer/0',
+    
   }),
   new FeatureLayer({
-    url: 'gis/arcgis/rest/services/harmohta/common_geo/FeatureServer/0',
-    title: 'point',
-    outFields: ['couche'],
+    url: 'https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Hazard_Areas/FeatureServer/0',
   }),
   new FeatureLayer({
-    url: 'gis/arcgis/rest/services/harmohta/common_geo/FeatureServer/1',
-    title: 'line',
-    outFields: ['couche'],
+    url: 'https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Hazards_Uptown_Charlotte/FeatureServer/0',
+  
   }),
 ];

@@ -46,8 +46,8 @@ function Sidebar() {
         <div className="dessin">
           <div className='rond'></div>
         </div>
-        <span className='hta-text'>hta</span>
-        <span className='num-text'>num</span>
+        <span className='hta-text'>map</span>
+        <span className='num-text'>viewer</span>
       </div>
       <Menu className="app-sidebar-menu" defaultSelectedKeys={['1']} mode="inline">
         {widgetList.map((obj, i) => {
