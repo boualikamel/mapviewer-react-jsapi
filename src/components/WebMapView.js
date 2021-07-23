@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useRef } from 'react';
 
-import { AppContext } from '../contexts/AppContext';
+import { MapContext } from '../hooks/AppContext';
 
 const WebMapView = () => {
-    const mapRef = useRef(null);
-    const { setContainer } = useContext(AppContext);
+  const mapRef = useRef(null);
+  const { setContainer } = useContext(MapContext);
 
-    useEffect(() => {
-        setContainer(mapRef.current);
-    }, [mapRef.current]);
+  useEffect(() => {
+    setContainer(mapRef.current);
+  }, [mapRef.current]);
 
-    return <div className="webmap" ref={mapRef}/>;
+  return <div className="webmap" ref={mapRef} />;
 };
 
 export { WebMapView };

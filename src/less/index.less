@@ -1,0 +1,113 @@
+@import '~antd/lib/style/themes/default.less';
+@import '~antd/dist/antd.less'; // Import Ant Design styles by less entry
+@import './variable.less';
+@import (css) url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+* {
+  font-family: 'Ubuntu', sans-serif !important;
+}
+
+
+
+body {
+  margin  : 0;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing : antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @import './scrollbar.less';
+
+  #root {
+    overflow: hidden;
+    
+  }
+
+  .app-layout {
+    min-height: 100vh;
+    overflow  : hidden;
+    position  : relative;
+    @import './sidebar.less';
+
+    .app-content-layout {
+      overflow: hidden;
+      .app-content {
+        overflow: hidden;
+        position: relative;
+        @import './custom-esri/custom.less';
+        @import './gis/widget.less';
+        @import './gis/webmapview.less';
+      }
+    }
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+
+.admin-layout {
+
+  .admin-header {
+    background-color: white;
+
+    h1 {
+      font-size   : 25px;
+      padding-left: 10px;
+      ;
+    }
+  }
+
+  .admin-content {
+    margin: 15px;
+
+    .ant-breadcrumb {
+      margin-top      : 10px;
+      margin-bottom   : 10px;
+      padding-top     : 4px;
+      padding-bottom  : 4px;
+      background-color: white;
+      border-radius   : 3px;
+
+      &:first-child {
+        padding-left: 10px
+      }
+
+      .ant-breadcrumb-link {
+        font-size: 17px;
+
+        a {
+          font-size: 17px;
+        }
+      }
+    }
+
+    .ant-table-title {
+      .ant-table-title-inputs {
+        display        : flex;
+        flex-direction : row-reverse;
+        justify-content: space-between;
+
+      }
+    }
+
+    .ant-table-wrapper {
+      height: 100%;
+
+      .ant-spin-nested-loading {
+        height: 100%;
+
+        .ant-spin-container {
+          height: calc(100% - 46px);
+        }
+
+        .ant-table {
+          height: calc(100% - 48px);
+        }
+      }
+    }
+  }
+
+  .admin-footer {}
+}

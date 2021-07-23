@@ -1,0 +1,120 @@
+.app-sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: @primary-color;
+  padding-bottom: 0px;
+  box-shadow: -41px 9px 10px 39px @black;
+  z-index: 1;
+
+  * {
+    color: @white;
+  }
+
+  .logo {
+    height: 32px;
+    margin-top: 20px;
+    margin-bottom: 28px;
+    position: relative;
+
+    .dessin {
+      height: 5px;
+      width: 18px;
+      background: rgba(255, 166, 0, 0.644);
+      position: absolute;
+      left: 53%;
+      top: -12%;
+      border-radius: 2px;
+
+      .rond {}
+    }
+
+    .hta-text {
+      color: black;
+      font-size: 1.6rem;
+      font-weight: bold;
+      position: absolute;
+      top: 50%;
+      left: 47%;
+      transform: translate(-50%, -50%);
+    }
+
+    .num-text {
+      color: black;
+      font-size: 0.7rem;
+      font-weight: bold;
+      position: absolute;
+      top: 99%;
+      left: 65%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .app-sidebar-menu {
+    flex-grow: 3;
+    background-color: @primary-color;
+    border-right: unset;
+  }
+
+  .ant-layout-sider-children {
+    display: flex;
+    flex-direction: column;
+
+    // .ant-menu-submenu-selected {}
+
+    .app-sidebar-profil {
+      height: 50px;
+      text-align: center;
+    }
+  }
+
+  .ant-layout-sider-trigger {
+    position: absolute;
+    border-radius: 50%;
+    top: 90%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    height: 23px !important;
+    width: 23px !important;
+    color: @white;
+    background: @primary-color;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.ant-layout-sider-collapsed {
+  flex: 0 0 65px !important;
+  width: 65px !important;
+  max-width: unset !important;
+  min-width: unset !important;
+
+  .ant-menu-item {
+    padding: 0;
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 1.5em !important;
+      width: 1.5em !important;
+    }
+
+    ::after {}
+  }
+
+  .ant-menu-submenu {
+    div {
+      svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 1.5em !important;
+        width: 1.5em !important;
+      }
+    }
+  }
+}

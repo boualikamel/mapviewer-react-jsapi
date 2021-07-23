@@ -1,0 +1,99 @@
+.widgetList {
+  height: 100%;
+  width: 100%;
+}
+
+.widgetContainer {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: absolute;
+  min-width: 200px;
+  min-height: 100px;
+  max-height: 100%;
+  max-width: 100%;
+  resize: both;
+  box-shadow: 0px 0px 4px 0px @primary-5;
+  border-radius: @border-radius-base;
+  border: 1px solid @layout-body-background;
+  background-color: transparent;
+
+  strong {
+    z-index: 2;
+  }
+
+  .widgetHeader {
+    background-color: @primary-transparent-3;
+    color: @white;
+    width: 100%;
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    font-weight: normal;
+    // box-shadow: 6px -15px 11px 8px @primary-color;
+
+    .widgetTitle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: unset;
+    }
+
+    .widgetCustomize {
+      width: 66px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .circle {
+        width: 1.1rem;
+        height: 1.1rem;
+        border-radius: 50%;
+        margin: 3px;
+        position: relative;
+
+        svg {
+          color: #0000003d;
+          width: 10px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        &.maximizeWidget {
+          background: @gold-7;
+
+          &:hover {
+            background: @gold-5;
+          }
+
+          &:active {
+            background: @gold-9;
+          }
+        }
+
+        &.closeWidget {
+          background: @red-7;
+
+          &:hover {
+            background: @red-6;
+          }
+
+          &:active {
+            background: @red-9;
+          }
+        }
+      }
+    }
+  }
+
+  .widgetBody {
+    height: 100%;
+    padding: 10px;
+    background-color: @white;
+    overflow: auto;
+  }
+}

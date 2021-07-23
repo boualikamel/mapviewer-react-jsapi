@@ -1,31 +1,28 @@
 {
-  "name": "jsapi-create-react-app",
+  "name": "testing-ant-cra",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@arcgis/core": "^4.18.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.32",
-    "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "@fortawesome/react-fontawesome": "^0.1.13",
-    "@testing-library/jest-dom": "^5.11.5",
+    "@arcgis/core": "^4.20.1",
+    "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "bootstrap": "^4.5.3",
-    "node-sass": "4.14.1",
+    "antd": "^4.15.4",
+    "clone-deep": "^4.0.1",
+    "framer-motion": "^3.10.3",
     "react": "^17.0.1",
-    "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
     "react-draggable": "^4.4.3",
-    "react-scripts": "^4.0.1",
-    "web-vitals": "^0.2.4"
+    "react-icons": "^4.2.0",
+    "react-scripts": "4.0.2",
+    "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "copy": "ncp ./node_modules/@arcgis/core/assets ./public/assets",
-    "postinstall": "npm run copy"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -35,9 +32,9 @@
   },
   "browserslist": {
     "production": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ],
     "development": [
       "last 1 chrome version",
@@ -46,6 +43,8 @@
     ]
   },
   "devDependencies": {
-    "ncp": "^2.0.0"
+    "@craco/craco": "^6.1.2",
+    "antd-scss-theme-plugin": "^1.0.8",
+    "craco-less": "^1.17.1"
   }
 }
