@@ -12,6 +12,8 @@ This project is made for people who want to build a webmap viewer application qu
 
 ## Quick start
 ```
+npm install -g ncp
+npm run copy
 npm install 
 npm start
 ```
