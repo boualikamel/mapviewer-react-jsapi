@@ -7,6 +7,9 @@ import Sidebar from './layouts/sidebar/Sidebar';
 import Main from './layouts/main/Main';
 import widgetConfig from './configs/widgetConfig';
 
+
+
+console.log('YOYOYO')
 function Gis() {
   return (
     <MapProvider>
